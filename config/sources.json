@@ -1,0 +1,89 @@
+{
+  "japanese": [
+    {
+      "id": "zenn-ai",
+      "name": "Zenn",
+      "type": "rss",
+      "url": "https://zenn.dev/topics/ai/feed",
+      "lang": "ja",
+      "official": false
+    },
+    {
+      "id": "qiita-ai",
+      "name": "Qiita",
+      "type": "rss",
+      "url": "https://qiita.com/tags/ai/feed",
+      "lang": "ja",
+      "official": false
+    },
+    {
+      "id": "itmedia-ai",
+      "name": "ITmedia AI+",
+      "type": "rss",
+      "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml",
+      "lang": "ja",
+      "official": false
+    },
+    {
+      "id": "publickey",
+      "name": "Publickey",
+      "type": "rss",
+      "url": "https://www.publickey1.jp/atom.xml",
+      "lang": "ja",
+      "official": false
+    }
+  ],
+  "english": [
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "type": "rss",
+      "url": "https://openai.com/news/rss.xml",
+      "lang": "en",
+      "official": true
+    },
+    {
+      "id": "google-ai",
+      "name": "Google AI Blog",
+      "type": "rss",
+      "url": "https://blog.google/technology/ai/rss/",
+      "lang": "en",
+      "official": true
+    },
+    {
+      "id": "anthropic-news",
+      "name": "Anthropic News",
+      "type": "rss",
+      "url": "https://feeds.feedburner.com/anthropic",
+      "lang": "en",
+      "official": true
+    },
+    {
+      "id": "hackernews",
+      "name": "Hacker News",
+      "type": "hackernews",
+      "lang": "en",
+      "official": false,
+      "queryTerms": [
+        "AI",
+        "LLM",
+        "GPT",
+        "Claude",
+        "Gemini",
+        "OpenAI",
+        "Anthropic",
+        "DeepSeek",
+        "Llama",
+        "Mistral"
+      ]
+    }
+  ],
+  "limits": {
+    "digestJapanese": 5,
+    "digestEnglish": 3,
+    "maxAgeHoursDigest": 36,
+    "maxAgeHoursAlert": 3,
+    "sentRetention": 500,
+    "hnFetchCount": 40
+  }
+}

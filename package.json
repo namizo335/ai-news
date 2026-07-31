@@ -1,0 +1,27 @@
+{
+  "name": "ai-news-slack",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Daily AI news digest and alerts to Slack via free APIs",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/index.ts",
+    "digest": "tsx src/index.ts --mode digest",
+    "alert": "tsx src/index.ts --mode alert",
+    "dry-run": "tsx src/index.ts --mode digest --dry-run",
+    "dry-run:alert": "tsx src/index.ts --mode alert --dry-run",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
