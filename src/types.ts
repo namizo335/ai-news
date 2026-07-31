@@ -43,6 +43,12 @@ export interface Article {
   score?: number;
 }
 
+export interface PresentedArticle extends Article {
+  reasons: string[];
+  /** Machine-translated Japanese title for English articles (optional). */
+  titleJa?: string;
+}
+
 export type Mode = "digest" | "alert";
 
 export interface CliOptions {

@@ -8,6 +8,7 @@ import {
   selectDigest,
 } from "./filter.js";
 import { formatAlert, formatDigest } from "./format.js";
+import { presentArticles } from "./present.js";
 import { postToSlack } from "./slack.js";
 import { fetchAllSources } from "./sources/index.js";
 import { loadSentIds, markSent, saveSentIds } from "./state.js";
@@ -73,12 +74,24 @@ async function main(): Promise<void> {
   let text: string;
   let postedIds: string[] = [];
 
+  const keywords = keywordsConfig.immediate;
+
   if (options.mode === "digest") {
     const { japanese, english } = selectDigest(articles, limits);
-    text = formatDigest(japanese, english);
+    const presentedJa = await presentArticles(japanese, {
+      mode: "digest",
+      keywords,
+      translateEnglish: false,
+    });
+    const presentedEn = await presentArticles(english, {
+      mode: "digest",
+      keywords,
+      translateEnglish: true,
+    });
+    text = formatDigest(presentedJa, presentedEn);
     postedIds = [...japanese, ...english].map((a) => a.id);
   } else {
-    const alerts = selectAlerts(articles, keywordsConfig.immediate);
+    const alerts = selectAlerts(articles, keywords);
     if (alerts.length === 0) {
       console.error("No alert candidates. Exiting without Slack post.");
       if (errors.length > 0) {
@@ -86,7 +99,12 @@ async function main(): Promise<void> {
       }
       return;
     }
-    text = formatAlert(alerts);
+    const presented = await presentArticles(alerts, {
+      mode: "alert",
+      keywords,
+      translateEnglish: true,
+    });
+    text = formatAlert(presented);
     postedIds = alerts.map((a) => a.id);
   }
 

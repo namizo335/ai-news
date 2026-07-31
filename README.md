@@ -53,6 +53,12 @@ npm run alert
 - [`config/sources.json`](config/sources.json) … フィードURL・件数・公式フラグ
 - [`config/keywords.json`](config/keywords.json) … 即時通知キーワード
 
+## 抽出理由と翻訳（AIなし）
+
+- **理由**: 公式ソース / キーワード一致 / 日本語・英語枠 / 新しさ / HNスコアをルールで付与
+- **翻訳**: 英語タイトルのみ [MyMemory](https://mymemory.translated.net/) 無料APIで日本語化（失敗時は原文のまま）
+- 任意で `.env` に `MYMEMORY_EMAIL` を置くと無料枠が増えることがあります
+
 ## ソース
 
 **日本語**: Zenn (AI), Qiita (AI), ITmedia AI+, Publickey  
