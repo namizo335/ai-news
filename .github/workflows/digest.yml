@@ -5,6 +5,15 @@ on:
     # 08:00 JST = 23:00 UTC
     - cron: "0 23 * * *"
   workflow_dispatch:
+  # Helps GitHub register the workflow in the Actions UI on first setup
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/digest.yml"
+      - "src/**"
+      - "config/**"
+      - "package.json"
+      - "package-lock.json"
 
 jobs:
   digest:

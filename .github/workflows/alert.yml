@@ -4,6 +4,15 @@ on:
   schedule:
     - cron: "*/30 * * * *"
   workflow_dispatch:
+  # Helps GitHub register the workflow in the Actions UI on first setup
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/alert.yml"
+      - "src/**"
+      - "config/**"
+      - "package.json"
+      - "package-lock.json"
 
 jobs:
   alert:
